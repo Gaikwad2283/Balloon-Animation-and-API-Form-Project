@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        body {
+            background: linear-gradient(rgb(83, 115, 163), rgb(236, 230, 220));
+            display: flex;
+        }
+
+        #container {
+            height: calc(100vh - 4px);
+            width: 100vw;
+            border: 2px solid;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .balloon {
+            width: 80px;
+            height: 100px;
+            position: relative;
+            inset: 64% 0% 0% 0%;
+            border-radius: 50%;
+            box-shadow: 3px 3px 30px inset;
+            margin-right: 10px;
+        }
+
+        .balloon::before {
+            content: "";
+            width: 68px;
+            height: 92px;
+            border-radius: 50%;
+            padding: 1.9px;
+            position: absolute;
+            inset: 1.9px 8px 8px 1px;
+            box-shadow: 3px 3px 20px;
+        }
+
+        .stick {
+            height: 100%;
+            width: 3px;
+            background-color: black;
+            position: absolute;
+            inset: 99px 0px 0px 39px;
+        }
+
+        button {
+            height: 42px;
+            width: 142px;
+            font-size: 33px;
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgb(29, 88, 129);
+            border: none;
+            border-radius: 20%;
+            color: aliceblue;
+            font-size: large;
+        }
+        
+        .balloon:nth-child(1) {
+            background-color: #FFD700; /* Gold */
+        }
+
+        .balloon:nth-child(2) {
+            background-color: #FF6347; /* Tomato */
+        }
+
+        .balloon:nth-child(3) {
+            background-color: #00FFFF; /* Cyan */
+        }
+        
+        .balloon:nth-child(4) {
+            background-color: #9370DB; /* MediumPurple */
+        }
+        
+        .balloon:nth-child(5) {
+            background-color: #FFA07A; /* LightSalmon */
+        
+        }
+        .balloon:nth-child(6) {
+            background-color: #7FFFD4; /* Aquamarine */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div class="balloon">
+            <div class="stick"></div>
+        </div>
+        <div class="balloon">
+            <div class="stick"></div>
+        </div>
+        <div class="balloon">
+            <div class="stick"></div>
+        </div>
+        <div class="balloon">
+            <div class="stick"></div>
+        </div>
+        <div class="balloon">
+            <div class="stick"></div>
+        </div>
+        <div class="balloon">
+            <div class="stick"></div>
+        </div>
+        <button id="btn">Inflate Balloon</button>
+    </div>
+        
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        $(document).ready(function () {
+            var intLength = 15;
+            var animationInterval;
+            var animationRunning = false;
+
+            $("#btn").click(function () {
+                if (!animationRunning) {
+                    $(".balloon").each(function () {
+                        var top = parseInt($(this).css("top"));
+                        $(this).data("initialTop", top);
+                    });
+
+                    animationInterval = setInterval(() => {
+                        $(".balloon").each(function () {
+                            var top = parseInt($(this).css("top"));
+                            $(this).css("top", top - 1);
+                            if (top < -100) {
+                                $(this).css("top", $(this).data("initialTop"));
+                            }
+                        });
+                    }, intLength);
+                    animationRunning = true;
+                } else {
+                    clearInterval(animationInterval);
+                    animationRunning = false;
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>
