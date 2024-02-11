@@ -56,10 +56,13 @@ http://localhost:3000/form
 5. Click the "Submit" button to call the basic API with the entered information.
 6. Checking Data in the Database
 After submitting the form, you can check the data stored in the MySQL database:
-1.	Open your preferred MySQL database management tool (e.g., phpMyAdmin).
-2.	Navigate to the users table in the users database.
-3.	You should see the submitted data stored in the table.
-
+1.	Open  MySQL database management tool.
+   
+3.	Navigate to the users table in the users database.
+4.	You should see the submitted data stored in the table.
+```
+[http://localhost:3000/form](http://localhost/phpmyadmin/)
+```
 
 ## Built With
 
