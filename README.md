@@ -23,7 +23,7 @@ npm install
 7. Start the server by running the following command:
 node app.js
 ```
-
+node app.js
 ```
 
 8. Open your web browser and go to http://localhost:3000/balloon to view the balloon animation page.
