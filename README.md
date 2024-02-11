@@ -16,12 +16,13 @@ This page features a basic animation of a balloon being inflated on clicking a b
 3. Ensure you have Node.js and npm installed on your machine.
 
 4. Install the required dependencies by running the following command in your terminal:
+```
 npm install
+```
 
 6. open the XAMPP and start Apache and MySQL server
 
 7. Start the server by running the following command:
-node app.js
 ```
 node app.js
 ```
