@@ -21,7 +21,10 @@ npm install
 6. open the XAMPP and start Apache and MySQL server
 
 7. Start the server by running the following command:
-Node app.js
+node app.js
+```
+
+```
 
 8. Open your web browser and go to http://localhost:3000/balloon to view the balloon animation page.
 
